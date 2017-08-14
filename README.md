@@ -14,17 +14,24 @@ Via user input or stored credentials, Orchid gains permissions to communicate wi
 
 Orchid hits the API collecting transactions for a given window, making sure to overlap with previous scrapes to prevent coverage gaps.
 
+### Response Storage
+
+Store the raw responses, totally unmodified.
+
 ### Verification
 
-The new data is compared against existing data. Old entries are updated where necessary, new entries are appended.
+The newest raw response data is compared against existing data. Old entries are updated where necessary, new entries are appended.
 
-### Storage
+### Raw Transaction Storage
 
-The most recent version(s?) of the data are stored in a nosql database.
+Store verified transactions, with the schema they came with from the bank.
 
 ### Normalizer
 
-When data is retrieved, it passes through the Normalizer. This strips the data to core pieces of information dictated by the schema.
+When data is retrieved, it passes through the Normalizer. This strips the data to core pieces of information dictated by the schema. It also adds the bones for the custom Orchid data.
+
+### Normalized Transaction Storage
+Store the normalized, Orchid formatted transactions
 
 ### Controller
 
@@ -40,11 +47,13 @@ The view consumes the API responses and renders them as a GUI.
 
 ### "Setter" API
 
-The setter API takes new data provided by the GUI, and it to storage. Note: it doesn't go through the normalizer because only custom data (rather than bank data) can be updated on the GUI side, so there's only one schema to begin with.
+The setter API takes new data provided by the GUI, and it to storage.
+
+Note: it doesn't go through the normalizer because only custom data (rather than bank data) can be updated on the GUI side, so there's only one schema to begin with.
 
 You can also refer to this diagram:
 
-![Orchid Data Flow](/Spec/Orchid_Flow_01.png?raw=true "Orchid Data Flow")
+![Orchid Data Flow](/Spec/Orchid_Flow_02.png?raw=true "Orchid Data Flow")
 
 --------------------------------------------------------
 
