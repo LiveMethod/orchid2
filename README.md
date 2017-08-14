@@ -6,31 +6,40 @@ Orchid ingests transaction data from your bank, extends it with customizable dat
 
 The sequence of Orchid functionality looks something like this
 
-*[  Authentication  ]*
+**[  Authentication  ]**
+
 Via user input or stored credentials, Orchid gains permissions to communicate with the target bank's API.
 
-*[  Scraping  ]*
+**[  Scraping  ]**
+
 Orchid hits the API collecting transactions for a given window, making sure to overlap with previous scrapes to prevent coverage gaps.
 
-*[  Verification  ]*
+**[  Verification  ]**  
+
 The new data is compared against existing data. Old entries are updated where necessary, new entries are appended.
 
-*[  Storage  ]*
+**[  Storage  ]**  
+
 The most recent version(s?) of the data are stored in a nosql database.
 
-*[  Normalizer  ]*
+**[  Normalizer  ]**  
+
 When data is retrieved, it passes through the Normalizer. This strips the data to core pieces of information dictated by the schema.
 
-*[  Controller  ]*
+**[  Controller  ]**  
+
 The controller queries normalized data from storage based on parameters in the API call.
 
-*[  "Getter" API  ]*
+**[  "Getter" API  ]**  
+
 The Getter API takes requests via URL and passes them to the controller.
 
-*[  View  ]*
+**[  View  ]**  
+
 The view consumes the API responses and renders them as a GUI.
 
-*[  "Setter" API  ]*
+**[  "Setter" API  ]**  
+
 The setter API takes new data provided by the GUI, and passes it through the Normalizer to update storage.
 
 You can also refer to this diagram:
@@ -43,7 +52,7 @@ You can also refer to this diagram:
 
 Transfer metadata looks different depending on which bank it comes from. Orchid preserves 100% of the bank's formatting. When data from multiple banks needs to be combined, it passes through the normalizer and is adapted to a universal schema.
 
-```
+```json
 transaction: {
 	UUID: string
 	amount: number
@@ -67,7 +76,7 @@ transaction: {
 * Note: categories can be split by amount.
 For example, you could break up a $5.00 spend like so:
 
-```
+```json
 categories: [
 	{'alcohol':310},
 	{'snacks':190}
