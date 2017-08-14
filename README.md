@@ -93,9 +93,9 @@ The sum of all category amounts must add up to exactly the transaction amount or
 
 | Name | Abbr. | Accepts | Returns |
 | --- | --- | --- | --- |
-| **search** | (s) | String: Query. Accepts && (and), | (or), - (not) |  array of txns matching | 
-| **merchant** | (m) | String: Query. Accepts && (and), | (or), - (not) |  array of txns matching | 
-| **location** | (l) | String: Query. Accepts && (and), | (or), - (not) |  array of txns matching | 
+| **search** | (s) | String: Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
+| **merchant** | (m) | String: Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
+| **location** | (l) | String: Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
 | **id** | (id) | String: A single UUID to return |  single transaction object | 
 
 ### By Range
