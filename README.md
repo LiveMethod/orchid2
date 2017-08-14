@@ -91,19 +91,19 @@ The sum of all category amounts must add up to exactly the transaction amount or
 
 ### Transaction Data:
 
-| Name | Abbreviation | Accepts | Returns |
+| Name | Abbr. | Accepts | Returns |
 | --- | --- | --- | --- |
-| search | (s) | String: Query. Accepts && (and), || (or), - (not) |  array of txns matching | 
-| merchant | (m) | String: Query. Accepts && (and), || (or), - (not) |  array of txns matching | 
-| location | (l) | String: Query. Accepts && (and), || (or), - (not) |  array of txns matching | 
-| id | (id) | String: A single UUID to return |  single transaction object | 
+| **search** | (s) | String: Query. Accepts && (and), | (or), - (not) |  array of txns matching | 
+| **merchant** | (m) | String: Query. Accepts && (and), | (or), - (not) |  array of txns matching | 
+| **location** | (l) | String: Query. Accepts && (and), | (or), - (not) |  array of txns matching | 
+| **id** | (id) | String: A single UUID to return |  single transaction object | 
 
 ### By Range
 
-| Name | Abbreviation | Accepts | Example | Returns |
+| Name | Abbr. | Accepts | Example | Returns |
 | --- | --- | --- | --- | --- |
-| amountrange | (ar) |  String: A floor and ceiling for the range. Hypenated numbers. | `1400-24000` is $14.00 - $240.00 | array of txns matching |
-| necessityrange | (nr) |  String: Hyphenated floor and ceiling for the range. | `2-5` | array of txns matching |
-| daterange | (dr) |  String: A start and end date for the range. Unix timestamps hyphen separated. | `1502691885-1502582094` | array of txns matching |
-| monthbyday | (mbd) |  String: A 6 digit month + year | `032016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
-| yearbymonth | (ybm) |  String: A year | `2016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
+| **amountrange** | (ar) |  String: A floor and ceiling for the range. Hypenated numbers. | `1400-24000` is $14.00 - $240.00 | array of txns matching |
+| **necessityrange** | (nr) |  String: Hyphenated floor and ceiling for the range. | `2-5` | array of txns matching |
+| **daterange** | (dr) |  String: A start and end date for the range. Unix timestamps hyphen separated. | `1502691885-1502582094` | array of txns matching |
+| **monthbyday** | (mbd) |  String: A 6 digit month + year | `032016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
+| **yearbymonth** | (ybm) |  String: A year | `2016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
