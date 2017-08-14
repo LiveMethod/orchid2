@@ -52,7 +52,7 @@ You can also refer to this diagram:
 
 Transfer metadata looks different depending on which bank it comes from. Orchid preserves 100% of the bank's formatting. When data from multiple banks needs to be combined, it passes through the normalizer and is adapted to a universal schema.
 
-```json
+```javascript
 transaction: {
 	UUID: string
 	amount: number
@@ -76,7 +76,7 @@ transaction: {
 * Note: categories can be split by amount.
 For example, you could break up a $5.00 spend like so:
 
-```json
+```javascript
 categories: [
 	{'alcohol':310},
 	{'snacks':190}
