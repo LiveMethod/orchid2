@@ -105,5 +105,5 @@ The sum of all category amounts must add up to exactly the transaction amount or
 | **amountrange** | ar |  String | A floor and ceiling for the range. Hypenated numbers. | `1400-24000` is $14.00 - $240.00 | array of txns matching |
 | **necessityrange** | nr |  String | Hyphenated floor and ceiling for the range. | `2-5` | array of txns matching |
 | **daterange** | dr |  String | A start and end date for the range. Unix timestamps hyphen separated. | `1502691885-1502582094` | array of txns matching |
-| **monthbyday** | mbd |  String | A 6 digit month + year | `032016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
-| **yearbymonth** | ybm |  String | A year | `2016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
+| **monthbyday** | mbd |  String | A 6 digit month + year | `032016` | day/amount pairs like {01:39924, 02:1914 ... 31:19400} |
+| **yearbymonth** | ybm |  String | A year | `2016` | month/amount pairs like {01:39924, 02:1914 ... 31:19400} |
