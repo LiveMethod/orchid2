@@ -2,9 +2,9 @@
 
 Orchid ingests transaction data from your bank, extends it with customizable data, and serves it through a straightforward, vendor-agnostic API.
 
-## The spec
+## The Spec
 
-The sequence of Orchid functionality looks something like this
+The sequence of Orchid functionality looks like this:
 
 ### Authentication
 
@@ -40,7 +40,7 @@ The view consumes the API responses and renders them as a GUI.
 
 ### "Setter" API
 
-The setter API takes new data provided by the GUI, and passes it through the Normalizer to update storage.
+The setter API takes new data provided by the GUI, and it to storage. Note: it doesn't go through the normalizer because only custom data (rather than bank data) can be updated on the GUI side, so there's only one schema to begin with.
 
 You can also refer to this diagram:
 
@@ -91,19 +91,19 @@ The sum of all category amounts must add up to exactly the transaction amount or
 
 ### Transaction Data:
 
-| Name | Abbr. | Accepts | Returns |
-| --- | --- | --- | --- |
-| **search** | (s) | String: Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
-| **merchant** | (m) | String: Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
-| **location** | (l) | String: Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
-| **id** | (id) | String: A single UUID to return |  single transaction object | 
+| Name | Abbr. | Type | Description | Returns |
+| --- | --- | --- | --- | --- |
+| **search** | s | String | Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
+| **merchant** | m | String | Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
+| **location** | l | String | Query. Accepts && (and), &#124;&#124; (or), - (not) |  array of txns matching | 
+| **id** | id | String | A single UUID to return |  single transaction object | 
 
 ### By Range
 
-| Name | Abbr. | Accepts | Example | Returns |
-| --- | --- | --- | --- | --- |
-| **amountrange** | (ar) |  String: A floor and ceiling for the range. Hypenated numbers. | `1400-24000` is $14.00 - $240.00 | array of txns matching |
-| **necessityrange** | (nr) |  String: Hyphenated floor and ceiling for the range. | `2-5` | array of txns matching |
-| **daterange** | (dr) |  String: A start and end date for the range. Unix timestamps hyphen separated. | `1502691885-1502582094` | array of txns matching |
-| **monthbyday** | (mbd) |  String: A 6 digit month + year | `032016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
-| **yearbymonth** | (ybm) |  String: A year | `2016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
+| Name | Abbr. | Type | Description | Example | Returns |
+| --- | --- | --- | --- | --- | --- |
+| **amountrange** | ar |  String | A floor and ceiling for the range. Hypenated numbers. | `1400-24000` is $14.00 - $240.00 | array of txns matching |
+| **necessityrange** | nr |  String | Hyphenated floor and ceiling for the range. | `2-5` | array of txns matching |
+| **daterange** | dr |  String | A start and end date for the range. Unix timestamps hyphen separated. | `1502691885-1502582094` | array of txns matching |
+| **monthbyday** | mbd |  String | A 6 digit month + year | `032016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
+| **yearbymonth** | ybm |  String | A year | `2016` | date/amount pairs like {01:39924, 02:1914 ... 31:19400} |
