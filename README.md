@@ -125,4 +125,4 @@ Leave the virtualenv with `deactivate`
 # Additional Resources
 Here are some useful links:
 
-(Virtual environments)[https://hackercodex.com/guide/python-development-environment-on-mac-osx/]
+[Virtual environments](https://hackercodex.com/guide/python-development-environment-on-mac-osx/)
