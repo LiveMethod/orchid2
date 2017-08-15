@@ -122,10 +122,6 @@ Enter the local virtual env and start it.
 `cd Virtualenvs/orchid && source bin/activate`
 Leave the virtualenv with `deactivate`
 
-
-
-
-
 # Additional Resources
 Here are some useful links:
 
