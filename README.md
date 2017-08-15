@@ -126,3 +126,5 @@ Leave the virtualenv with `deactivate`
 Here are some useful links:
 
 [Virtual environments](https://hackercodex.com/guide/python-development-environment-on-mac-osx/)
+
+[Tutorial](https://realpython.com/blog/python/flask-by-example-part-1-project-setup/)
