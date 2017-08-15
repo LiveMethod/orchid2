@@ -4,6 +4,7 @@ env/
 bin/
 lib/
 include/
+__pycache__/
 
 pip-selfcheck.json
 

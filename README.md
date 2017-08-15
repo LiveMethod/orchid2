@@ -128,3 +128,5 @@ Here are some useful links:
 [Virtual environments](https://hackercodex.com/guide/python-development-environment-on-mac-osx/)
 
 [Tutorial](https://realpython.com/blog/python/flask-by-example-part-1-project-setup/)
+
+[Flask RESTful](https://flask-restful.readthedocs.io/en/0.3.5/quickstart.html)
