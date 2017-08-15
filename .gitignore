@@ -1,0 +1,12 @@
+# Distribution / packaging
+.Python
+env/
+bin/
+lib/
+include/
+
+pip-selfcheck.json
+
+*.DS_Store
+
+secrets/
