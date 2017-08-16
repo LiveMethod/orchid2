@@ -40,12 +40,6 @@ def get():
 	# create an array to store result objects
 	results = []
 
-	# FIXME: this loop should break but doesn't.
-	# It will append a txn once for each key that matches.
-	# So if searching for "1" and both the ID and amount
-	# contain a "1", the txn will be added twice.
-	# It should add once and then move on.
-
 	if 's' in args:
 		print("LOG: s in args")
 		# Loop through every transaction
@@ -59,6 +53,9 @@ def get():
 					print("LOG: found a matching transaction")
 					# Add the transaction to the results
 					results.append(TRANSACTIONS[i])
+					# Break to avoid double adding when
+					# multiple values match the query
+					break
 
 	matches = str(results)
 

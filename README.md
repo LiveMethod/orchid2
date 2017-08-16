@@ -120,6 +120,9 @@ The sum of all category amounts must add up to exactly the transaction amount or
 # Running Locally
 Enter the local virtual env and start it.
 `cd Virtualenvs/orchid && source bin/activate`
+
+Run the app with `python app.py`
+
 Leave the virtualenv with `deactivate`
 
 # Additional Resources
