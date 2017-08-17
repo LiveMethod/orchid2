@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from urllib.parse import urlparse, parse_qsl
-
+from src.filters import filters
 app = Flask(__name__)
 
 # Mock data
@@ -13,7 +13,7 @@ TRANSACTIONS = [
 	},
 	{
 		'id': '02',
-		'merchant': 'dick',
+		'merchant': 'd1ck',
 		'amount': '50000',
 		'date': '1502582400'
 	},
@@ -24,40 +24,6 @@ TRANSACTIONS = [
 		'date': '1480941859'
 	}
 ]
-
-# Takes a filter abbreviation as a string
-# returns the filter function for that abbreviation
-def getFilterFor(filter, value, data):
-	
-	if filter == 's':
-		return searchFilter(value, data)
-	# If there's nothing to match the filter,
-	# give the data back unmodified
-	else:
-		return data
-
-# search (s)
-# String
-# TODO: should accept && (and), || (or), - (not)
-def searchFilter(value, data):
-	print('searchFilter: ' + value)
-	matches = []
-
-	# Loop through every transaction
-	for i, txn in enumerate(data):
-		# For every piece of data in that transaction
-		for key in txn:
-			# convert the value to a string
-			val = str(txn[key])
-			# If the query is in that string
-			if value in val:
-				# Add the transaction to the results
-				matches.append(data[i])
-				# Break to avoid double adding when
-				# multiple values match the query
-				break
-
-	return matches
 
 @app.route('/api')
 def get():
@@ -84,7 +50,7 @@ def get():
 		value = query_list[i][1]
 		print('calling ' + query + ' for ' + value)
 
-		data = getFilterFor(query, value, data)
+		data = filters.get_filter_for(query, value, data)
 	return str(data)
 
 if __name__ == '__main__':
