@@ -70,9 +70,12 @@ transaction: {
 	state: string // (authorized, pending, settled, refunded, etc)
 	description: string // typically the merchant name
 	categories: [string, string, ...]// array of merchant0-side categories
-	geodata: {
-		???? stuff happens here
-		depends what bank geodata loks like
+	geodata: { // See note
+		city: string,
+		state: string, // 2 letter state, caps
+		lat: number, // to 5 places, like 38.81602
+		lon: number,
+		timezone: string, // like "America/New_York"
 	}
 	custom:{
 		necessity: number // 1 through 5
