@@ -29,7 +29,6 @@ def search(value, data):
 	for i, txn in enumerate(data):
 		# For every piece of data in that transaction
 		for key in txn:
-			print('key is ' + key)
 			# convert the value to a string
 			val = str(txn[key])
 			# If the query is in that string
