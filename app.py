@@ -1,29 +1,14 @@
-from flask import Flask, request, jsonify
+import os
+from flask import Flask, request
+from flask_pymongo import PyMongo
+from bson import json_util
 from urllib.parse import urlparse, parse_qsl
 from src.filters import filters
+
 app = Flask(__name__)
 
-# Mock data
-TRANSACTIONS = [
-	{
-		'id': '01',
-		'merchant': 'tom',
-		'amount': '10000',
-		'date': '1502781222'
-	},
-	{
-		'id': '02',
-		'merchant': 'd1ck',
-		'amount': '50000',
-		'date': '1502582400'
-	},
-	{
-		'id': '03',
-		'merchant': 'harry',
-		'amount': '999999',
-		'date': '1480941859'
-	}
-]
+app.config['MONGO_DBNAME'] = 'temp'
+mongo = PyMongo(app)
 
 @app.route('/api')
 def get():
@@ -38,13 +23,16 @@ def get():
 	# which guarantees the correct order. 
 	# https://docs.python.org/2/library/urlparse.html
 
-	# without encoding, this will be returned as bytestring
+	# without encoding, this would be returned as bytestring
 	query_raw = str(request.query_string,'utf-8')
 	query_list = parse_qsl(query_raw)
 	
-	# results start off with everything in scope
-	data = TRANSACTIONS;
-
+	# get all transactions from mongo
+	raw_data = mongo.db.transactions.find();
+	# convert mongo's bson to a python list
+	data = json_util.loads(json_util.dumps(raw_data))
+	
+	# process commands from query
 	for i, process in enumerate(query_list):
 		query = query_list[i][0]
 		value = query_list[i][1]
