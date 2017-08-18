@@ -47,47 +47,45 @@ def normalize(vendor, data):
 	
 	# Make sure the value was actually set
 	if normalized_data is not None:
-		data_length = str(len(normalized_data))
 		
 		# confirm that the object contains the expected things
+		
 		# note: this is untested, and might return something like
 		# len(str(json)) which would be huge and wrong.
+		data_length = str(len(normalized_data))
 		if data_length != 9:
 			raise ValueError('expected 9 objects in transaction. got ' + data_length)
 
+		# UUID should be a string
 		uuid_type = type(normalized_data.uuid)
 		if uuid_type is not str:
 			raise ValueError('uuid should be string but was ' + str(uuid_type))
 
-		# confirm the string is valid utf8
-		uuid = normalized_data.uuid.decode("utf8","ignore")
-
-		# update the normalized data
-		normalized_data.uuid = uuid
-
-		# confirm that amount is a number
+		# amount should be a number
 		amount_type = type(normalized_data.amount)
 		if amount_type is not int:
 			raise ValueError('uuid should be int but was ' + str(amount_type))
 
-		# confirm that the amount is sane
+		# amount should be sane
 		amount_length = len(normalized_data.amount)
 		if amount_length <= 2 or amount_length >= 8
 			raise ValueError('amount should be 3 to 8 digits long. was ' + amount_length)
 
-		# confirm that time is a real datetime type thing
+		# todo: confirm that time is a real datetime type thing
 
-		# confirm that time is between sane intervals (eg 2010 and current day)
+		# todo: confirm that time is between sane intervals (eg 2010 and current day)
 
-		# todo: export this to some kind of config file
 		# fixme: there needs to be a standard around how type/state/etc
 		# are cased.
+
+		# todo: export this to some kind of config file
 		# this is fake for now until we see what kinds of things come in.
 		valid_types = [
 			"credit",
 			"debit"
 		]
 
+		# confirm that the type is one that's recognized
 		if normalized_data.type not in valid_types:
 			raise ValueError('invalid transaction type: ' + normalized_data.type)
 
@@ -101,24 +99,30 @@ def normalize(vendor, data):
 			"REVERSED"
 		]
 
+		# confirm that the state is one that's recognized
 		if normalized_data.state not in valid_states:
 			raise ValueError('invalid transaction state: ' + normalized_data.state)
 
+		# description should be a string
 		desc_type = type(normalized_data.description)
 		if desc_type is not str:
 			raise ValueError('description should be string but was ' + str(desc_type))
 
+		# vendor categories should be a list
 		vendor_cat_type = type(normalized_data.categories)
 		if vendor_cat_type is not list:
 			raise ValueError('categories should be list. was ' + str(vendor_cat_type))
 
+		# vendor category list length should be sane
 		if len(normalized_data.categories) > 20:
 			raise ValueError('Maximum 20 vendor categories')
 
 		for entry in normalized_data.categories:
 			entry_type = type(entry)
+			# every entry in the vendor categories should be a string
 			if entry_type is not str:
 				raise ValueError('All vendor categories should be strings. was ' + entry)
+			# name length should be sane
 			if len(entry) > 99:
 				raise ValueError('Vendor category max length is 100. ' + entry)
 

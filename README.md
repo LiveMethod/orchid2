@@ -69,7 +69,7 @@ transaction: {
 	type: string // (credit, debit, etc)
 	state: string // (authorized, pending, settled, refunded, etc)
 	description: string // typically the merchant name
-	categories: [string, string, ...]// array of merchant0-side categories
+	categories: [string, string, ...]// array of merchant-side categories
 	geodata: { // See note
 		city: string,
 		state: string, // 2 letter state, caps
@@ -94,6 +94,8 @@ categories: [
 	{'snacks':190}
 ],
 ```
+
+* Note: geodata is based on simple's until there's more data.
 
 The sum of all category amounts must add up to exactly the transaction amount or the write will be rejected.
 
