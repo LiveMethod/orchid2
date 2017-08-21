@@ -63,7 +63,7 @@ Transfer metadata looks different depending on which bank it comes from. Orchid 
 
 ```javascript
 transaction: {
-	UUID: string
+	uuid: string
 	amount: number
 	time: number // (unix time)
 	type: string // (credit, debit, etc)
