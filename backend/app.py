@@ -51,7 +51,9 @@ def reset_collection(name):
 def import_transactions(vendor):
 	txns = None
 	if vendor == 'simple':
-		with open('./secrets/demo_vendor_txns/simple_transactions.json') as data:
+		# if this breaks in the future, it's been moved around a little.
+		# troubleshoot folder nesting first.
+		with open('../../secrets/demo_vendor_txns/simple_transactions.json') as data:
 			txns = json.load(data)
 			txns = txns['transactions']
 
