@@ -1,0 +1,62 @@
+.month-select-bar {
+  background: orange;
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  transition: all 200ms ease;
+
+  &:hover {
+    height: 320px;
+  }
+  
+  .arrow {
+    background: #D1D0F1;
+    width: 40px;
+    height: 100%;
+  }
+  
+  .viewport {
+    background: #E7E7F6;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .month-entry{
+    margin: 0 5px;
+
+    .month-card {
+      background: white;
+      width: 80px;
+      height: 60px;
+      margin: 10px 0;
+      text-align: center;
+      opacity: .3;
+      transition: all 150ms ease;
+      box-shadow: 0 11px 10px 0 rgba(185,185,199,0.16), 0 2px 4px 0 rgba(80,80,99,0.16);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: rgba(209,208,241,0.2);
+
+      .month-card {
+        margin: 6px 0 14px;
+        opacity: 1;
+      }
+    }
+  }
+
+  .month-name {
+    width: 100%;
+    font-size: 24px;
+    display: block;
+  }
+  
+  .year-name {
+    width: 100%;
+    font-size: 14px;
+    display: block;
+  }
+}

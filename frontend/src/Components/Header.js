@@ -1,43 +1,17 @@
 import React, { Component } from 'react';
-
-// Header Bar
-//    Scrape Tools
-//    Title
-//    Search
+import '../styles/Header.css';
 
 class Header extends Component {
   render() {
-    
-    const styles={
-      bar: {
-        backgroundColor: 'red',
-        display: 'flex',
-        flexDirection: 'row',
-      },
-      scrapeTools: {
-        backgroundColor: 'yellow',
-        flex: '3',
-      },
-      title: {
-        backgroundColor: 'green',
-        flex: '1',
-        minWidth: 200,
-      },
-      search: {
-        backgroundColor: 'blue',
-        flex: '3',
-      }
-    };
-
     return (
-      <div style={styles.bar}>
-        <div style={styles.scrapeTools}>
+      <div className="header-bar">
+        <div className="scrape-tools">
           Scrape Tools
         </div>
-        <div style={styles.title}>
+        <div className="title">
           {this.props.title}
         </div>
-        <div style={styles.search}>
+        <div className="search">
           Search
         </div>
       </div>

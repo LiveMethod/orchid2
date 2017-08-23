@@ -1,50 +1,13 @@
 import React, { Component } from 'react';
-
+import '../styles/MonthSelectBar.css';
 // Month Select Bar
 //    Arrow
 //    Months
 //    Arrow
 
 class MonthSelectBar extends Component {
+
   render() {
-
-    const styles = {
-      bar: {
-        backgroundColor: 'orange',
-        display: 'flex',
-        flexDirection: 'row',
-      },
-      arrow: {
-        backgroundColor: 'yellow',
-        width: 40,
-        height: 80,
-      },
-      monthCardViewport: {
-        backgroundColor: 'green',
-        flex: '1',
-        display: 'flex',
-        flexDirection: 'row',
-        overflow: 'hidden',
-      },
-      monthCard: {
-        backgroundColor: 'white',
-        width: 80,
-        height: 60,
-        margin: '10px 5px',
-        textAlign: 'center',
-      },
-      monthName: {
-        width: '100%',
-        fontSize: '24px',
-        display: 'block',
-      },
-      yearName: {
-        width: '100%',
-        fontSize: '14px',
-        display: 'block',
-      },
-    };
-
     const fakeMonths = [
       { name: 'jan', month: '01', year: '2016', uncategorized: true, amount: 4098 },
       { name: 'feb', month: '02', year: '2016', uncategorized: true, amount: 6238 },
@@ -60,30 +23,34 @@ class MonthSelectBar extends Component {
       { name: 'dec', month: '12', year: '2016', uncategorized: true, amount: 1249 },
     ]
 
-    const MonthCard = (props) => {
+    const MonthEntry = (props) => {
       return (
-        <div style={styles.monthCard}>
-          <span style={styles.monthName}>
-            {props.name}
-          </span>
-          <span style={styles.yearName}>
-            {props.year}
-          </span>
+        <div className="month-entry">
+          <div className="month-card">
+            <span className="month-name">
+              {props.name}
+            </span>
+            <span className="year-name">
+              {props.year}
+            </span>
+          </div>
         </div>
       )
     }
 
     return (
-      <div style={styles.bar}>
-        <div style={styles.arrow}>
+      <div
+        className="month-select-bar"
+      >
+        <div className="arrow">
           &lt;
         </div>
-        <div style={styles.monthCardViewport}>
+        <div className="viewport">
           {fakeMonths.map(month =>
-            <MonthCard key={month.name} name={month.name} year={month.year}/>
+            <MonthEntry key={month.name} name={month.name} year={month.year}/>
           )}
         </div>
-        <div style={styles.arrow}>
+        <div className="arrow">
           &gt;
         </div>
       </div>

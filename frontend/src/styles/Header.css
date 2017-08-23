@@ -1,0 +1,19 @@
+.header-bar {
+  background: #5858B0;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 20px; }
+  .header-bar .scrape-tools {
+    flex: 3; }
+  .header-bar .title {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    color: #C6C5F7;
+    font-weight: lighter;
+    letter-spacing: 3.2px;
+    text-transform: uppercase; }
+  .header-bar .search {
+    flex: 3;
+    text-align: right; }
